@@ -1,0 +1,51 @@
+[project]
+name = "google-ads-claude-plugin"
+version = "0.1.0"
+description = "Claude Cowork MCP plugin for managing Google Ads campaigns, Search and Display ads, budgets, targeting, optimization, and performance reporting."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [
+    { name = "Bertram Labs" },
+]
+keywords = ["google-ads", "mcp", "model-context-protocol", "claude", "advertising"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mcp[cli]>=1.26.0",
+    "google-ads>=29.2.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/eneelkant/google-ads-claude-plugin"
+Repository = "https://github.com/eneelkant/google-ads-claude-plugin"
+"Bug Tracker" = "https://github.com/eneelkant/google-ads-claude-plugin/issues"
+
+[project.scripts]
+google-ads-mcp = "google_ads_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/google_ads_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.25.0",
+]

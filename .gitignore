@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Credentials & secrets
+service-account*.json
+google-ads.yaml
+*.pem
+*.key
+
+# MCP config (local paths)
+.mcp.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Working plans
+plans/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# uv
+uv.lock
+
+.venv/
+pyproject.toml.save

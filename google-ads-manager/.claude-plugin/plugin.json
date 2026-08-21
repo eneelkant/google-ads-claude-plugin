@@ -1,0 +1,8 @@
+{
+  "name": "google-ads-manager",
+  "version": "0.1.0",
+  "description": "Manage Google Ads campaigns, Search and Display ads, budgets, targeting, optimization, and performance reporting through Claude Cowork.",
+  "author": {
+    "name": "Neelkant Ekbote"
+  }
+}

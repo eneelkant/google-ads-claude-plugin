@@ -1,0 +1,13 @@
+{
+  "name": "google-ads-claude-plugin",
+  "owner": {
+    "name": "Neelkant Ekbote"
+  },
+  "plugins": [
+    {
+      "name": "google-ads-manager",
+      "source": "./google-ads-manager",
+      "description": "Manage Google Ads campaigns, Search and Display ads, budgets, targeting, optimization, and performance reporting through Claude Cowork."
+    }
+  ]
+}
