@@ -1,0 +1,21 @@
+{
+  "name": "google-ads",
+  "description": "Example remote MCP connector metadata for ChatGPT / OpenAI APIs. ChatGPT does not launch local stdio servers directly.",
+  "transport": "streamable-http",
+  "server_url": "https://YOUR_PUBLIC_HOST/mcp",
+  "notes": [
+    "Deploy google-ads-mcp with --transport streamable-http behind HTTPS.",
+    "Or keep the server private and use OpenAI Secure MCP Tunnel with a tunnel_id.",
+    "Never put Google Ads credentials in this file — inject them into the server runtime only."
+  ],
+  "responses_api_tool_example": {
+    "type": "mcp",
+    "server_url": "https://YOUR_PUBLIC_HOST/mcp",
+    "require_approval": "always"
+  },
+  "secure_tunnel_example": {
+    "type": "mcp",
+    "tunnel_id": "YOUR_TUNNEL_ID",
+    "require_approval": "always"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "google-ads": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${workspaceFolder}",
+        "google-ads-mcp"
+      ],
+      "env": {
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "${env:GOOGLE_ADS_DEVELOPER_TOKEN}",
+        "GOOGLE_ADS_SERVICE_ACCOUNT_PATH": "${env:GOOGLE_ADS_SERVICE_ACCOUNT_PATH}",
+        "GOOGLE_ADS_LOGIN_CUSTOMER_ID": "${env:GOOGLE_ADS_LOGIN_CUSTOMER_ID}",
+        "GOOGLE_ADS_CUSTOMER_ID": "${env:GOOGLE_ADS_CUSTOMER_ID}",
+        "GOOGLE_ADS_IMPERSONATED_EMAIL": "${env:GOOGLE_ADS_IMPERSONATED_EMAIL}"
+      }
+    }
+  }
+}

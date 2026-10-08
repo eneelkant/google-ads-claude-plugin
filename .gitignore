@@ -31,8 +31,10 @@ google-ads.yaml
 *.pem
 *.key
 
-# MCP config (local paths)
-.mcp.json
+# MCP config (local paths / secrets) — keep committed examples under clients/ and google-ads-manager/
+/.mcp.json
+.cursor/mcp.json
+!.cursor/mcp.json.example
 
 # Claude Code local settings
 .claude/settings.local.json
@@ -51,7 +53,5 @@ htmlcov/
 Thumbs.db
 
 # uv
-uv.lock
-
-.venv/
+# Keep lockfile for reproducible installs when present; ignore local overrides only.
 pyproject.toml.save

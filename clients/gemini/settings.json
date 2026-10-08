@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "google-ads": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/ABSOLUTE/PATH/TO/google-ads-claude-plugin",
+        "google-ads-mcp"
+      ],
+      "env": {
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "$GOOGLE_ADS_DEVELOPER_TOKEN",
+        "GOOGLE_ADS_SERVICE_ACCOUNT_PATH": "$GOOGLE_ADS_SERVICE_ACCOUNT_PATH",
+        "GOOGLE_ADS_LOGIN_CUSTOMER_ID": "$GOOGLE_ADS_LOGIN_CUSTOMER_ID",
+        "GOOGLE_ADS_CUSTOMER_ID": "$GOOGLE_ADS_CUSTOMER_ID",
+        "GOOGLE_ADS_IMPERSONATED_EMAIL": "$GOOGLE_ADS_IMPERSONATED_EMAIL"
+      },
+      "timeout": 600000,
+      "trust": false
+    }
+  }
+}
