@@ -1,6 +1,8 @@
 # Google Ads Manager
 
-Manage Google Ads accounts through the Google Ads MCP server.
+Manage Google Ads accounts through the universal Google Ads MCP server
+(`google-ads-mcp` in the repository root). The same server works with Cursor,
+Claude, Gemini CLI, ChatGPT (remote MCP), and other MCP clients.
 
 ## Capabilities
 

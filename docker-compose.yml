@@ -1,0 +1,23 @@
+services:
+  google-ads-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: google-ads-mcp:local
+    container_name: google-ads-mcp
+    ports:
+      - "${MCP_PORT:-8000}:8000"
+    environment:
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: "0.0.0.0"
+      MCP_PORT: "8000"
+      GOOGLE_ADS_DEVELOPER_TOKEN: "${GOOGLE_ADS_DEVELOPER_TOKEN}"
+      GOOGLE_ADS_LOGIN_CUSTOMER_ID: "${GOOGLE_ADS_LOGIN_CUSTOMER_ID:-}"
+      GOOGLE_ADS_CUSTOMER_ID: "${GOOGLE_ADS_CUSTOMER_ID:-}"
+      GOOGLE_ADS_IMPERSONATED_EMAIL: "${GOOGLE_ADS_IMPERSONATED_EMAIL:-}"
+      # Mount the key into the container and point at the mount path.
+      GOOGLE_ADS_SERVICE_ACCOUNT_PATH: /credentials/service-account.json
+    volumes:
+      # Bind-mount your local service account JSON (read-only). Do not bake secrets into the image.
+      - "${GOOGLE_ADS_SERVICE_ACCOUNT_HOST_PATH:?Set GOOGLE_ADS_SERVICE_ACCOUNT_HOST_PATH to your local JSON key}:/credentials/service-account.json:ro"
+    restart: unless-stopped

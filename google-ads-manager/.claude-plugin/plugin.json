@@ -1,7 +1,7 @@
 {
   "name": "google-ads-manager",
-  "version": "0.1.0",
-  "description": "Manage Google Ads campaigns, Search and Display ads, budgets, targeting, optimization, and performance reporting through Claude Cowork.",
+  "version": "0.2.0",
+  "description": "Manage Google Ads via the universal Google Ads MCP server (Cursor, Claude, Gemini, ChatGPT, and other MCP clients).",
   "author": {
     "name": "Neelkant Ekbote"
   }

@@ -1,48 +1,30 @@
 # Contributing
 
-Thanks for your interest in contributing to Google Ads MCP Server!
-
-## Development Setup
-
-1. Install [uv](https://docs.astral.sh/uv/) and Python 3.12+
-2. Clone the repo and install dependencies:
+## Setup
 
 ```bash
-git clone https://github.com/bertramdev/GoogleAdsMCP.git
-cd GoogleAdsMCP
-uv sync
+git clone https://github.com/eneelkant/google-ads-claude-plugin.git
+cd google-ads-claude-plugin
+uv sync --all-groups
 ```
 
-3. Copy `.env.example` to `.env` and fill in your Google Ads API credentials.
-
-## Running Tests
+## Tests
 
 ```bash
-uv run pytest
+uv run pytest -q
 ```
 
-Note: Write tools are not tested against live accounts in CI. Read-only tools have been validated against the live Google Ads API v23.
+Do not add tests that require real Google Ads credentials.
 
-## Code Style
+## Structure
 
-- Type hints on all public functions
-- Google-style docstrings
-- Format with Black, sort imports with isort
+- Put Google Ads / MCP logic in `src/google_ads_mcp/`
+- Put client launch examples in `clients/` and `docs/clients/`
+- Keep `google-ads-manager/` limited to Claude plugin metadata
 
-## Commit Conventions
+## Pull requests
 
-This project uses [Conventional Commits](https://www.conventionalcommits.org/):
-
-- `feat:` — new feature
-- `fix:` — bug fix
-- `docs:` — documentation only
-- `refactor:` — code change that neither fixes a bug nor adds a feature
-- `test:` — adding or updating tests
-- `chore:` — maintenance tasks
-
-## Pull Requests
-
-1. Create a feature branch from `main`
-2. Make your changes with tests where applicable
-3. Ensure `uv run pytest` passes
-4. Submit a PR with a clear description of the change
+1. Branch from `main`
+2. Keep tool names stable
+3. Preserve destructive-operation safety (`confirm_removal`)
+4. Never commit secrets
