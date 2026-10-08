@@ -25,9 +25,11 @@ ENV MCP_TRANSPORT=streamable-http \
 
 EXPOSE 8000
 
+# TCP readiness: Streamable HTTP rejects plain GET with 406, so probe the port instead.
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD python -c "import os,sys,urllib.request; t=os.environ.get('MCP_TRANSPORT','streamable-http');\
-sys.exit(0) if t=='stdio' else urllib.request.urlopen('http://127.0.0.1:%s/mcp'%os.environ.get('MCP_PORT','8000'), timeout=3)" || exit 1
+    CMD python -c "import os,socket,sys; t=os.environ.get('MCP_TRANSPORT','streamable-http'); \
+sys.exit(0) if t=='stdio' else None; \
+s=socket.create_connection(('127.0.0.1', int(os.environ.get('MCP_PORT','8000'))), 3); s.close()"
 
 ENTRYPOINT ["google-ads-mcp"]
 CMD ["--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
